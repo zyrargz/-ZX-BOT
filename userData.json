@@ -1,0 +1,32 @@
+{
+  "users": {
+    "6281234567890": {
+      "premium": true,
+      "money": 500,
+      "gamesPlayed": 10
+    },
+    "6289876543210": {
+      "premium": false,
+      "money": 150,
+      "gamesPlayed": 5
+    }
+  },
+  "botStats": {
+    "totalUsers": 2,
+    "totalCommandsUsed": 50,
+    "botCreatedAt": "2024-01-01"
+  },
+  "cache": {
+    "totalCache": 0
+  },
+  "6287851745422@s.whatsapp.net": {
+    "premium": false,
+    "money": 749,
+    "commandsUsed": 22
+  },
+  "120363200365935139@g.us": {
+    "premium": false,
+    "money": 500,
+    "commandsUsed": 12
+  }
+}

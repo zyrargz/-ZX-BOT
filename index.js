@@ -1,5 +1,4 @@
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage } = require("@whiskeysockets/baileys");
-const { createCanvas } = require("canvas");
 const fs = require("fs");
 const axios = require("axios");
 require("dotenv").config();
@@ -55,12 +54,6 @@ async function startBot() {
 📹 !ytmp4 [link]  
 📢 !tagall  
 
-🎨 *Sticker & AI*  
-🖼 !sticker (Reply gambar)  
-✏️ !brats [teks]  
-🤖 !chat [GPT]  
-🖌 !ai [GPT]  
-
 🏆 *Fitur Grup*  
 🚪 !kick @user  
 ➕ !add [nomor]  
@@ -95,19 +88,6 @@ async function startBot() {
                 let mention = text.split(" ")[1] + "@s.whatsapp.net";
                 await sock.groupParticipantsUpdate(message.key.remoteJid, [mention], "remove");
                 await sock.sendMessage(message.key.remoteJid, { text: `✅ @${mention} telah dikeluarkan!` }, { mentions: [mention] });
-            }
-
-            // STICKER MAKER
-            if (text === "!sticker") {
-                if (!replyMessage?.imageMessage) {
-                    return sock.sendMessage(message.key.remoteJid, { text: "⚠️ Tolong balas satu foto!" }, { quoted: message });
-                }
-                const stream = await downloadContentFromMessage(replyMessage.imageMessage, "image");
-                let buffer = Buffer.from([]);
-                for await (const chunk of stream) {
-                    buffer = Buffer.concat([buffer, chunk]);
-                }
-                await sock.sendMessage(message.key.remoteJid, { sticker: buffer }, { quoted: message });
             }
 
             // TOGGLE AIRDROP
